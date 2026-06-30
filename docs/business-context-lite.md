@@ -1,5 +1,6 @@
 # Business Context — InoClear AI
 
+> **Persona Responsável:** @product (Product Owner / Product Manager)
 > Este documento consolida a visão original do produto e os aprendizados obtidos nas entrevistas e respostas do cliente no documento "Perguntas Sprint 1 - Desafio A - RH". Ele passa a ser a fonte de verdade de Produto para o projeto.
 
 # 1. Visão do Produto
@@ -339,16 +340,17 @@ Funcionalidades:
 
 ---
 
-# 16. Backlog Estratégico Inicial
+# 16. Backlog de Épicos e Features
 
-| ID | Épico | Objetivo |
-|----|--------|-----------|
-| EP-01 | Gestão de 1:1 | Estruturar e registrar reuniões |
-| EP-02 | Gestão de Feedbacks | Melhorar qualidade das conversas |
-| EP-03 | Gestão de PDIs | Desenvolver colaboradores |
-| EP-04 | Analytics RH | Gerar inteligência organizacional |
-| EP-05 | Alertas e Riscos | Atuação preventiva do RH |
-| EP-06 | Desenvolvimento de Lideranças | Aumentar maturidade gerencial |
+| ID | Tipo | Título | Objetivo/Descrição | Status |
+|----|------|--------|---------------------|--------|
+| EP-01 | Épico | Gestão de 1:1 | Estruturar e registrar reuniões | - |
+| FT-01 | Feature | Registro de Reunião 1:1 | Registro estruturado da 1:1 pelo líder | **Pronto para Dev** |
+| EP-02 | Épico | Gestão de Feedbacks | Melhorar qualidade das conversas | - |
+| EP-03 | Épico | Gestão de PDIs | Desenvolver colaboradores | - |
+| EP-04 | Épico | Analytics RH | Gerar inteligência organizacional | - |
+| EP-05 | Épico | Alertas e Riscos | Atuação preventiva do RH | - |
+| EP-06 | Épico | Desenvolvimento de Lideranças | Aumentar maturidade gerencial | - |
 
 ---
 
@@ -369,3 +371,31 @@ Funcionalidades:
 - Melhor percepção de valor pelo RH;
 - Geração de indicadores confiáveis;
 - Melhoria nos índices de clima e liderança.
+
+---
+
+# 18. Especificações Ativas (Persona: @product)
+
+Este bloco contém o detalhamento de negócio das features marcadas como "Pronto para Dev".
+
+## Feature: Registro de Reunião 1:1 (FT-01)
+
+### Visão Geral
+Esta funcionalidade permite ao líder conduzir e registrar de forma estruturada as reuniões 1:1 com seus liderados diretamente na plataforma, garantindo conformidade com a estrutura de negócio obrigatória e as regras de compliance (LGPD).
+
+### Histórias de Usuário (User Story)
+**Como** Líder (Persona 1 ou Persona 3),
+**Eu quero** preencher de forma guiada o registro da reunião 1:1 com meu liderado, dividida em blocos de pauta obrigatórios,
+**Para que** eu tenha um histórico de acompanhamento padronizado do colaborador e sinalize automaticamente alertas de risco ao RH sem esforço adicional.
+
+### Critérios de Aceite (5 critérios testáveis)
+1. **Estrutura Obrigatória:** O formulário de registro deve exigir o preenchimento ou confirmação dos 5 blocos obrigatórios: Check-in humano, Pauta do liderado, Status de entregas/obstáculos, Desenvolvimento/carreira e Acordos.
+2. **Filtro de Conteúdo Proibido:** O sistema deve verificar o texto inserido e impedir a gravação se encontrar dados sensíveis ou informações explicitamente proibidas (como CPFs, dados médicos, familiares, ou opiniões de caráter).
+3. **Visibilidade Diferenciada:** O liderado deve visualizar apenas as seções públicas de Pauta, Acordos e Próximos passos. Comentários privados e sinalizações de risco do líder devem ser restritos ao líder e ao RH.
+4. **Imutabilidade Temporal:** O registro da reunião 1:1 pode ser editado pelo líder por até 48 horas após sua criação. Após esse período, o registro torna-se somente leitura para fins de auditoria histórica.
+5. **Notificação de Acordos:** Ao salvar a reunião, o sistema deve enviar por e-mail ou notificação interna os combinados e a data da próxima reunião 1:1 sugerida tanto para o líder quanto para o liderado.
+
+### Regras de Negócio
+- A cadência mínima recomendada de reuniões 1:1 é quinzenal ou mensal. Se um liderado ficar sem 1:1 registrada por mais de 30 dias, um status de alerta de cadência deve ser sinalizado no Portal do RH.
+- Sinalizações de risco feitas pelo líder na 1:1 devem ser categorizadas por nível (Baixo, Médio, Alto) e disparar um alerta assíncrono para o dashboard do RH.
+- Nenhuma informação inserida na 1:1 pode ser utilizada para tomada de decisão automatizada de demissão pela IA (toda decisão deve ser humana e avaliada pelo líder/RH).
